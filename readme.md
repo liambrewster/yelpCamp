@@ -1,5 +1,3 @@
-This will be my practice to build my template readme
-
 <img src="https://github.com/liambrewster/Glass-Background-Demo/blob/3b09839d9690ff0adfb510c391d1f0b922ac7db9/images/LB%20Dev%20Logo.png" width="150" height="150">
 
 # Project Title
