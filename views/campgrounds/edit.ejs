@@ -1,0 +1,64 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">Edit <%=campgrounds.title%>
+        </h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds/<%=campgrounds._id%>?_method=PUT" method="post" novalidate
+                class="validated-forms">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="campground[title]" id="title"
+                        value="<%=campgrounds.title%>" required>
+                    <div class="invalid-feedback">
+                        Please Provide the Campground Title!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="campground[location]" id="location"
+                        value="<%=campgrounds.location%>" required>
+                    <div class="invalid-feedback">
+                        Please Provide the Campgrounds Location!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image URL</label>
+                    <input class="form-control" type="text" name="campground[image]" id="image"
+                        value="<%=campgrounds.image%>" required>
+                    <div class="invalid-feedback">
+                        Please an Image URl for the Campground!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Campground Price</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="price-label">£</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Price" id="price"
+                            aria-describedby="price-label" name="campground[price]" value="<%=campgrounds.price%>"
+                            required>
+                        <div class="invalid-feedback">
+                            Please Provide a price for the Campground!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" name="campground[description]"
+                        id="description"><%=campgrounds.description%></textarea>
+                    <div class="invalid-feedback">
+                        Please Provide a description for the Campground!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info">Update Campground</button>
+
+                </div>
+
+            </form>
+            <a href="/campgrounds/<%=campgrounds._id%>">Go Back to <%=campgrounds.title%></a>
+            <a href="/campgrounds">All campgrounds</a>
+        </div>
+    </div>
