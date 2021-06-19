@@ -5,10 +5,12 @@ const methodOverride = require('method-override');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
 const Campground = require('./models/campground');
+const Review = require('./models/review');
 const ejsMAte = require('ejs-mate');
 const morgan = require('morgan');
 const Joi = require('joi');
-const { campgroundSchema } = require('./schemas.js')
+const { campgroundSchema } = require('./schemas.js');
+const campground = require('./models/campground');
 
 //connect to Mongo DB
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
@@ -93,6 +95,16 @@ app.put('/campgrounds/:id', validateCampground, catchAsync(async (req, res) => {
 app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
     const campgrounds = await Campground.findByIdAndDelete(req.params.id);
     res.redirect('/campgrounds')
+}));
+
+//Route for submitting the campground reviews
+app.post('/campgrounds/:id/review', catchAsync(async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    const review = new Review(req.body.review);
+    campground.reviews.push(review);
+    await review.save();
+    await campground.save();
+    res.redirect(`/campgrounds/${campground._id}`);
 }));
 
 //new error
