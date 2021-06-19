@@ -7,7 +7,6 @@ Yelp Camp is the final project requirement for the [Web Developer Bootcamp by Co
 ## Built With
 - [Mongodb](https://www.mongodb.com/)
 - [Express JS](https://expressjs.com/)
-- [React Native](https://facebook.github.io/react-native/)
 - [Node JS](https://nodejs.org/en/)
 
 ## Installation
