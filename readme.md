@@ -25,7 +25,11 @@ or from within your package.json file open the terminal and run
 ```bash
 npm install.
 ```
-
+to then run the server from within your package.json file pen the terminal and run 
+```bash
+npm start.
+```
+this should confirm you have started and now running on localhost
 
 ## Folder Structure
     .
