@@ -31,9 +31,9 @@ npm install.
 ## Folder Structure
     .
     ├── models
-    ├── seed                       # All Api doc and gif files
-    ├── utils                 # Electron JS app folder
-    ├── views              # Node JS MongoDB and Express JS server folder
+    ├── seed                      
+    ├── utils     
+    ├── views         
     ├── .gitignore
     ├── readme.md
     ├── app.js
