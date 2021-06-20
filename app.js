@@ -85,8 +85,8 @@ app.post('/campgrounds', validateCampground, catchAsync(async (req, res, next) =
 }));
 // Details page for an individual campground
 app.get('/campgrounds/:id', catchAsync(async (req, res) => {
-    const campgrounds = await (await Campground.findById(req.params.id).populate('reviews'));
-    res.render('campgrounds/show', { campgrounds })
+    const campgrounds = await Campground.findById(req.params.id).populate('reviews'));
+res.render('campgrounds/show', { campgrounds })
 }));
 
 //This route will be used to show campground informaiton for editing
