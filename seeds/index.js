@@ -29,7 +29,7 @@ const seedDB = async () => {
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             image: 'https://source.unsplash.com/collection/483251',
-            description: 'lgchgfhhjfjhgdgjf hjdgfd hjd jg  ',
+            description: 'another great campground 🏕️ ',
             price
         })
         await camp.save();
@@ -38,5 +38,5 @@ const seedDB = async () => {
 }
 seedDB().then(() => {
     mongoose.connection.close();
-    console.log("New Test Data populated")
+    console.log("New Test Data populated √")
 })
