@@ -11,6 +11,7 @@ const morgan = require('morgan');
 const Joi = require('joi');
 const { campgroundSchema, reviewSchema } = require('./schemas.js');
 const campgrounds = require('./routes/campgrounds');
+const reviews = require('./routes/reviews');
 
 //connect to Mongo DB
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
@@ -39,41 +40,15 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
 
-const validateReview = (req, res, next) => {
-    const { error } = reviewSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    }
-    else {
-        next();
-    }
-}
 
 app.use('/campgrounds', campgrounds)
+app.use('/campgrounds/:id/review', reviews)
 
 // Home Directory for Yelp-camp
 app.get('/', (req, res) => {
     res.render('home')
 });
 
-//Route for submitting the campground reviews
-app.post('/campgrounds/:id/review', validateReview, catchAsync(async (req, res) => {
-    const campground = await Campground.findById(req.params.id);
-    const review = new Review(req.body.review);
-    campground.reviews.push(review);
-    await review.save();
-    await campground.save();
-    res.redirect(`/campgrounds/${campground._id}`);
-}));
-
-//Delete a Review
-app.delete('/campgrounds/:id/review/:reviewId', catchAsync(async (req, res) => {
-    const { id, reviewId } = req.params;
-    const campground = await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    const review = await Review.findByIdAndDelete(reviewId);
-    res.redirect(`/campgrounds/${id}`)
-}));
 
 //new error
 app.all('*', (req, res, next) => {
