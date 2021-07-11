@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
 const Campground = require('./models/campground');
 const Review = require('./models/review');
@@ -17,7 +16,8 @@ const reviews = require('./routes/reviews');
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 });
 
 const db = mongoose.connection;
