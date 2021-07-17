@@ -5,12 +5,10 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
-const Campground = require('./models/campground');
-const Review = require('./models/review');
 const ejsMAte = require('ejs-mate');
 const morgan = require('morgan');
-const Joi = require('joi');
-const { campgroundSchema, reviewSchema } = require('./schemas.js');
+
+//Routes
 const campgrounds = require('./routes/campgrounds');
 const reviews = require('./routes/reviews');
 
