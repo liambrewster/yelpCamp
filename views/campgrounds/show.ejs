@@ -21,12 +21,14 @@
                     <li class="list-group-item text-muted">£<%=campgrounds.price%>/ Per Night
                     </li>
                 </ul>
-                <div class="card-body">
-                    <a class="card-link btn btn-warning" href="/campgrounds/<%=campgrounds._id%>/edit">Edit</a>
-                    <form class="d-inline" action="/campgrounds/<%=campgrounds._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
+                <% if(currentUser && campgrounds.author.equals(currentUser._id)) { %>
+                    <div class="card-body">
+                        <a class="card-link btn btn-warning" href="/campgrounds/<%=campgrounds._id%>/edit">Edit</a>
+                        <form class="d-inline" action="/campgrounds/<%=campgrounds._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
             </div>
 
         </div>
