@@ -65,8 +65,6 @@ app.use((req, res, next) => {
     next();
 })
 
-
-
 // info to render views for the pages
 app.engine('ejs', ejsMAte)
 app.set('view engine', 'ejs');
