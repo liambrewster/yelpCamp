@@ -38,7 +38,7 @@ router.post('/', isLoggedIn, validateCampground, catchAsync(async (req, res, nex
 
 }));
 // Details page for an individual campground
-router.get('/:id', isLoggedIn, catchAsync(async (req, res) => {
+router.get('/:id', catchAsync(async (req, res) => {
     const campgrounds = await Campground.findById(req.params.id).populate('reviews');
     if (!campgrounds) {
         req.flash('error', 'Cannot Find That Campground, Try again!');
