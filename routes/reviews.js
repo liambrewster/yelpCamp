@@ -4,19 +4,8 @@ const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
 const Campground = require('../models/campground');
 const Review = require('../models/review');
-const { reviewSchema } = require('../schemas.js');
+const { validateReview } = require('../middleware.js');
 
-// Validate a REview with Joi
-const validateReview = (req, res, next) => {
-    const { error } = reviewSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    }
-    else {
-        next();
-    }
-}
 
 //Route for submitting the campground reviews
 router.post('/', validateReview, catchAsync(async (req, res) => {
