@@ -18,7 +18,7 @@ router.get('/new', isLoggedIn, campgrounds.renderNewForm);
 // Details page for an individual campground
 router.route('/:id')
     .get(catchAsync(campgrounds.showCampground))
-    .put(isLoggedIn, isAuthor, validateCampground, catchAsync(campgrounds.updateCampground))
+    .put(isLoggedIn, isAuthor, upload.array('image'), validateCampground, catchAsync(campgrounds.updateCampground))
     .delete(isLoggedIn, isAuthor, catchAsync(campgrounds.deleteCampground));
 
 //This route will be used to show campground informaiton for editing
