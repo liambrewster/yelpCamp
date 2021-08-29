@@ -1,6 +1,13 @@
 const Campground = require('../models/campground');
 const { cloudinary } = require("../cloudinary")
 
+// Telegram Stuff
+const TelegramBot = require('node-telegram-bot-api');
+const token = process.env.TELEGRAM_BOT_TOKEN;
+const bot = new TelegramBot(token);
+const chatId = process.env.TELEGRAM_GROUP_CHAT_ID
+
+
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({})
     const count = await Campground.countDocuments({})
@@ -20,6 +27,7 @@ module.exports.createCampground = async (req, res, next) => {
     console.log(campground);
     req.flash('success', 'Successfully made a new campground!');
     res.redirect(`/campgrounds/${campground._id}`)
+    bot.sendMessage(chatId, `🆕 New Campground Created called ${campground.title} added by ${req.user.username} (${req.user.email})`);
 };
 
 module.exports.showCampground = async (req, res) => {
@@ -72,4 +80,5 @@ module.exports.deleteCampground = async (req, res) => {
     const campgrounds = await Campground.findByIdAndDelete(req.params.id);
     req.flash('success', 'Deleted the Campground');
     res.redirect('/campgrounds')
+    bot.sendMessage(chatId, `🗑️ Campground called ${campground.title} just got deleted by ${req.user.username} (${req.user.email})`);
 };
