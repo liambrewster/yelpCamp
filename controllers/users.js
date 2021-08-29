@@ -1,5 +1,11 @@
 const User = require('../models/user');
 
+// Telegram Stuff
+const TelegramBot = require('node-telegram-bot-api');
+const token = process.env.TELEGRAM_BOT_TOKEN;
+const bot = new TelegramBot(token);
+const chatId = process.env.TELEGRAM_GROUP_CHAT_ID
+
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
 };
@@ -13,7 +19,8 @@ module.exports.register = async (req, res, next) => {
             if (err) return next(err);
             req.flash('success', 'Welcome to Yelp Camp!');
             res.redirect('/campgrounds')
-        })
+        });
+        bot.sendMessage(chatId, `🆕 New User Created called ${user.username}, with an email of ${user.email}`);
 
     } catch (e) {
 
