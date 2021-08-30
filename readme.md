@@ -46,3 +46,6 @@ this should confirm you have started and now running on localhost
 
 ## Project Status
 In Progress
+
+## Additional Feature above the Tutorial
+- Telegram Integration - i have added a telegram bot that will send a message to a group chat for evey New Campground, User & review but also when any of those are deleted.

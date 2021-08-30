@@ -93,18 +93,14 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
     // 'match' is the result of executing the regexp above on the text content
     // of the message
     const fName = msg.from.first_name
-    const UID = msg.from.id
-    const GID = msg.chat.id
-
-
+    const userId = msg.from.id
     const chatId = msg.chat.id;
-    // const resp = match[1]; 
 
-    if (UID === GID) {
-        const resp = `Hello ${fName}, Your User ID is: ${UID} you will be sent everything`;
+    if (userId === chatId) {
+        const resp = `Hello ${fName}, Your User ID is: ${userId} you will be sent everything`;
         bot.sendMessage(chatId, resp);
     }
-    const resp = `Hello ${fName}, Your User ID is: ${UID} & Your Group ID is ${GID} `;
+    const resp = `Hello ${fName}, Your User ID is: ${userId} & Your Chat ID is ${chatID} `;
 
     // send back the matched "whatever" to the chat
     bot.sendMessage(chatId, resp);
@@ -112,16 +108,15 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 });
 
 bot.onText(/\/setup/, (msg, match) => {
-    const fName = msg.from.first_name;
-    const UID = msg.from.id;
-    const GID = msg.chat.id;
+    const fName = msg.from.first_name
+    const userId = msg.from.id
     const chatId = msg.chat.id;
 
-    if (UID === GID) {
-        const resp = `Hello ${fName},\n Lets Get you Started, Your User ID is: ${UID} \n as you are direct messaging me, you Chat ID is the same so add ${GID} in the next field`;
+    if (userId === chatId) {
+        const resp = `Hello ${fName},\n Lets Get you Started, Your User ID is: ${userId} \n as you are direct messaging me, your Chat ID is the same so add ${chatId} in the next field`;
         bot.sendMessage(chatId, resp);
     } else {
-        const resp = `Hello ${fName},\n Let get this group chat popping!, in the fields add you User ID: ${UID} \n & Your Group ID is ${GID} `;
+        const resp = `Hello ${fName},\n Let get this group chat popping!, in the fields add your User ID: ${userId} \n & Your Chat ID is: ${chatId} `;
         bot.sendMessage(chatId, resp);
     }
 });
