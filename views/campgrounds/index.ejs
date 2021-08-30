@@ -7,7 +7,12 @@
         <div class="card">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="<%=camp.images[0].url%>" alt="<%=camp.images[0].filename%>" class="img-fluid">
+                    <% if(camp.images.length) {%>
+                        <img src="<%=camp.images[0].url%>" alt="<%=camp.images[0].filename%>" class="img-fluid">
+                        <% } else { %>
+                            <img src="https://res.cloudinary.com/br3wst3r/image/upload/v1629576867/YelpCamp/ibrickg4g59kzhhdtq8j.jpg"
+                                alt="default Image" class="img-fluid">
+                            <% } %>
                 </div>
                 <div class="col md-8">
                     <div class="card-body">
