@@ -43,7 +43,6 @@ module.exports.showCampground = async (req, res) => {
         path: 'reviews',
         populate: { path: 'author' }
     }).populate('author');
-    console.log(campgrounds)
     if (!campgrounds) {
         req.flash('error', 'Cannot Find That Campground, Try again!');
         return res.redirect('/campgrounds')
