@@ -35,17 +35,19 @@ const seedDB = async () => {
             },
             images: [
                 {
-
-                    url: 'https://res.cloudinary.com/br3wst3r/image/upload/v1629576867/YelpCamp/ibrickg4g59kzhhdtq8j.jpg',
-                    filename: 'YelpCamp/ibrickg4g59kzhhdtq8j'
+                    url: 'https://res.cloudinary.com/br3wst3r/image/upload/v1631105890/YelpCamp/dytypym74ggskf7zamxk.jpg',
+                    filename: 'YelpCamp/dytypym74ggskf7zamxk'
                 },
                 {
-
-                    url: 'https://res.cloudinary.com/br3wst3r/image/upload/v1629576868/YelpCamp/xa2tgi9kv2oh0rm2muo9.jpg',
-                    filename: 'YelpCamp/xa2tgi9kv2oh0rm2muo9'
+                    url: 'https://res.cloudinary.com/br3wst3r/image/upload/v1631105889/YelpCamp/w7oocw15txmabr1m4uzw.jpg',
+                    filename: 'YelpCamp/w7oocw15txmabr1m4uzw'
+                },
+                {
+                    url: 'https://res.cloudinary.com/br3wst3r/image/upload/v1631105894/YelpCamp/t7dflhkuomhz1srfngqm.jpg',
+                    filename: 'YelpCamp/t7dflhkuomhz1srfngqm'
                 }
             ],
-            description: 'another great campground 🏕️ ',
+            description: "Run it up the flagpole that's not on the roadmap but can you put it into a banner that is not alarming, but eye catching and not too giant Bob called an all-hands this afternoon bake it in obviously, so quantity. On-brand but completeley fresh game plan, but digitalize for we need to build it so that it scales work for wheelhouse. Run it up the flag pole pipeline. Three-martini lunch critical mass. On your plate. Table the discussion hire the best drink the Kool-aid we need more paper back to the drawing-board, for table the discussion . Iâ€™ve been doing some research this morning and we need to better. New economy tread it daily. Problem territories let's take this conversation offline reach out, for move the needle encourage & support business growth  🏕️ ",
             price
         })
         await camp.save();
