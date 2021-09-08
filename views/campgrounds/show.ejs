@@ -56,9 +56,10 @@
 
         </div>
 
-        <div id='map' style='width: 400px; height: 300px;'></div>
+        
 
         <div class="col-6">
+            <div id='map' ></div>
             <% if(currentUser) { %>
                 <h2>Please Leave A Review</h2>
                 <form action="/campgrounds/<%=campgrounds._id%>/review" method="POST" novalidate
