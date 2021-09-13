@@ -103,7 +103,7 @@ const connectSrcUrls = [
     "https://events.mapbox.com/",
 ];
 const fontSrcUrls = ["https://fonts.googleapis.com/",
-"https://use.fontawesome.com/"];
+    "https://use.fontawesome.com/"];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -155,7 +155,8 @@ app.get('/fakeUser', async (req, res) => {
 // Telegram Stuff
 const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_BOT_TOKEN;
-const bot = new TelegramBot(token, { polling: true });
+if (process.env.NODE_ENV !== "production") bot = new TelegramBot(token, { polling: false });
+if (process.env.NODE_ENV == "production") bot = new TelegramBot(token, { polling: true });
 
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, (msg, match) => {
