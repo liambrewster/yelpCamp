@@ -1,4 +1,4 @@
-<img src="https://github.com/liambrewster/Glass-Background-Demo/blob/3b09839d9690ff0adfb510c391d1f0b922ac7db9/images/LB%20Dev%20Logo.png" width="150" height="150">
+<img src="https://github.com/liambrewster/liambrewster/raw/main/image/LB%20Dev%20Logo.png" width="150" height="150">
 
 # YELP CAMP
 
@@ -33,19 +33,26 @@ this should confirm you have started and now running on localhost
 
 ## Folder Structure
     .
-    ├── models
-    ├── seed                      
-    ├── utils     
-    ├── views         
+    ├── cloudinary              //logic to store images in the cloud
+    ├── controllers             // all logic for each part
+    ├── models                  // info for the schemas
+    ├── public                  //reuseable JS or CSS files stored here
+    ├── routes                  //route details
+    ├── seeds                   //logic to populate database with see data here                   
+    ├── utils                   //error files stored here
+    ├── views                   // all view templates for rendering stored here
     ├── .gitignore
     ├── readme.md
     ├── app.js
+    ├── middleware.js
     ├── schemas.js
     └── package.json
+    └── package-lock.json
     
 
 ## Project Status
-In Progress
+Bootcamp Complete But Still Adding Additional Features 🚀
 
 ## Additional Feature above the Tutorial
 - Telegram Integration - i have added a telegram bot that will send a message to a group chat for evey New Campground, User & review but also when any of those are deleted.
+- Added Created At & Updated At features to the Scheme for future tracking and visibility of when a users signs up etc
